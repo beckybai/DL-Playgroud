@@ -1,0 +1,34 @@
+1. Assume that you have already make "cuda driver" run well on your computer.
+   $nvidia-smi
+   you can see the status of your nvidia.
+2. get the newest Anaconda
+   Unbuntu:
+   $sudo apt-get install Anaconda
+3. load into the offical website of Pytorch, copy the code to your terminal.
+4. if things go well, you can use pytorch now.
+   type in: 
+   $ipython
+   $import torch # attention that you'd better leave the pytorch folder
+   $import torch.nn as nn
+5. if you want to update Pytorch because you find the newest feature on Github.
+   clone the package into your computer and run command:
+   $python setup.py build install #remember that the python version should be related to Anaconda. Like this: Python 3.6.0 | Anaconda custom(64-bit). So that the computer will know that you want to update it.
+
+However, thing will not go well at this step, I met these problems
+1). It needs the gnu version lower than 5
+	I uninstall my gnu6 and reinstalled 4.9. Do remember to link /usr/bin/gcc-4.9 to /usr/bin/gcc, like this
+	$ sudo ln -s /usr/bin/gcc-(your version) /usr/bin/gcc
+2). It cannot find "cuda.h"
+	I add these to my ./.bashrc
+	$export CUDA_HOME=/usr/local/cuda # for ubuntu
+	$export CUDA_HOME=/opt/cuda # for archlinux. (dependents on where you install your cuda)
+	$export LD_LIBRARY_PATH=“LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"
+3). Some other strange errors
+	Update my cuda......
+	UPdate my Anaconda......
+	Sort for help on the forum of Pytorch.
+
+Pardon my poor English.
+That's all.
+
+CUHK,20170315
