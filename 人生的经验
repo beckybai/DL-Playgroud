@@ -1,0 +1,8 @@
+check files on remote server.
+1. sshfs
+2. vscode
+3. pycharm(??? do not make it yet...DISPLAY=localhost:10.0)
+关于如何在运行过程中 print 出greidient 的策略233
+https://discuss.pytorch.org/t/why-cant-i-see-grad-of-an-intermediate-variable/94
+
+VAE// tensorflow 资源http://jmetzen.github.io/2015-11-27/vae.html
