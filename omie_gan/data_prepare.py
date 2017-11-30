@@ -217,3 +217,30 @@ class Data_2D_Curve():
 # # plt.scatter(result[:,0],result[:,1],alpha=0.5)
 # plt.show()
 # plt.savefig('./hehe_0-01.png')
+
+
+
+# Swiss Roll
+from sklearn.datasets.samples_generator import make_swiss_roll
+# from sklearn.cluster import AgglomerativeClustering
+# import mpl_toolkits.mplot3d.axes3d as p3
+# import time as time
+
+class SwissRoll():
+    def __init__(self,batch_size, noise):
+        self.batch_size = batch_size
+        self.noise = noise
+    def batch_next(self):
+        # n_samples = 1500
+        # noise = 0.1
+        X, _ = make_swiss_roll(self.batch_size//2, self.noise)
+        # Make it thinner
+        X[:, 0] /= 10
+        X[:, 2] /= 10
+        x1 = np.array([X[:, 0], X[:, 2]])
+        x2 = np.array([-X[:, 0], -X[:, 2]])
+        return np.concatenate([x1, x2], 1).T
+# data = data_generator()
+# a = 1
+# plt.scatter(data[0,:],data[1,:])
+

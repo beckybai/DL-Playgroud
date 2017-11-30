@@ -19,7 +19,7 @@ import mutil
 import toy_model as model
 import data_prepare
 
-out_dir = './out/gan_{}'.format(datetime.now())
+out_dir = './out/vanila_gan_{}'.format(datetime.now())
 out_dir = out_dir.replace(" ", "_")
 print(out_dir)
 
@@ -135,8 +135,9 @@ for it in range(20000):
 	# T part
 	T_mix = T(combine(z, G_sample))
 	T_ind = T(combine(z, X))
-	GT_loss = torch.mean(T_mix) - torch.log(torch.mean(torch.exp(T_ind)))
-	G_loss = GD_loss + GT_loss
+	# GT_loss = torch.mean(T_mix) - torch.log(torch.mean(torch.exp(T_ind)))
+	# G_loss = GD_loss + GT_loss
+	G_loss = GD_loss
 	G_loss.backward()
 	G_solver.step()
 	# print(grads['G'])
@@ -148,8 +149,8 @@ for it in range(20000):
 	# Print and plot every now and then
 	if it % 100 == 0:
 		fig, ax = plt.subplots()
-		plt.xlim([-2.5,2.5])
-		plt.ylim([-2.5,2.5])
+		plt.xlim([-2.5, 2.5])
+		plt.ylim([-2.5, 2.5])
 		
 		print('Iter-{}; D_loss_real/fake: {}/{}; G_loss: {}'.format(it, D_loss_real.data.tolist(),
 																	D_loss_fake.data.tolist(), G_loss.data.tolist()))
