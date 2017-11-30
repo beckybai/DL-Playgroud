@@ -1,0 +1,10 @@
+tensor -> variable	Variable
+variable -> tensor	Variable.data
+initliaze		1. torch.randn 2. torch.inttensor([1,2],[2,3]) 3. torch.inttensor(1,2).zero_()
+torch.mm		it is very cute.
+Useful things, which may help me ... 
+>>> for param in model.parameters():
+>>>     print(type(param.data), param.size())
+I am supervised that I could set up the parameters in advance.!!! the type of the parpameters is nn.Parameter(torch.randn(10,10))
+
+
