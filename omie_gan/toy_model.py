@@ -27,7 +27,7 @@ class G_Net(nn.Module):
 
 # Part of calculating the mutual information
 class T_Net(nn.Module):
-    def __init__(self,input_dimension=4,hidden_dimension = 20):
+    def __init__(self,input_dimension=4,hidden_dimension = 128):
         super(T_Net, self).__init__()
         self.pipeline = nn.Sequential(
                 nn.Linear(input_dimension, hidden_dimension, bias=True),

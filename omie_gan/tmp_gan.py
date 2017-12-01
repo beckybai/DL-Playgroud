@@ -106,7 +106,7 @@ def cat(m1,m2):
 # c_fixed = Variable(torch.from_numpy(mutil.label_num2vec(np.repeat(c_fixed,5)).astype("float32")),volatile=False).cuda()
 # zc_fixed = torch.cat([z_fixed, c_fixed], 1)
 
-z_fixed = Variable(torch.randn(mb_size, Z_dim)).cuda()
+
 c_fixed = np.array(range(0, mode_num))
 c_fixed = Variable(torch.from_numpy(mutil.label_num2vec(np.repeat(c_fixed, mb_size // (mode_num))).astype("float32")),
                    volatile=False).cuda()

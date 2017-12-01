@@ -31,3 +31,29 @@ def label_num2vec(num_vec, max_label = 2):
 #        print(num_vec[i])
     	label_mat[i,num_vec[i]]=1
     return label_mat
+
+def flatten(S):
+    if S == []:
+        return S
+    if isinstance(S[0], list):
+        return flatten(S[0]) + flatten(S[1:])
+    return S[:1] + flatten(S[1:])
+# something strange
+# def calc_gradient_penalty(z):
+#     G_sample = G(z).detach()
+#
+#     T_mix = T(combine(z, G_sample))
+#     T_ind = T(combine(z, X))
+#     GT_loss = -(torch.mean(T_mix) - torch.log(torch.mean(torch.exp(T_ind))))
+#
+#     D_fake = D(G_sample)
+#     GD_loss = criterion(D_fake, ones_label)
+#     GD_loss.backward(create_graph=True)
+#     GT_loss.backward(create_graph=True)
+#     gradients_g = \
+#     autograd.grad(outputs=D_fake, inputs=z, grad_outputs=torch.ones(D_fake.size()).cuda() if use_cuda else torch.ones(
+#             D_fake.size()), create_graph=True, retain_graph=True, only_inputs=True)[0]
+#
+#     gradients_t = autograd.grad(outputs=GT_loss, inputs=z, create_graph=True, retain_graph=True, only_inputs=True)[0]
+#
+#     return gradients_g.norm(2, dim=1), gradients_t.norm(2, dim=1)
